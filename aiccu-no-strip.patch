@@ -1,0 +1,12 @@
+--- aiccu.orig/unix-console/Makefile	2006-06-28 08:24:59.000000000 -0500
++++ aiccu/unix-console/Makefile	2006-06-28 08:26:48.000000000 -0500
+@@ -86,9 +86,6 @@
+ 
+ aiccu:	$(OBJS) ${INCS}
+ 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS);
+-ifeq ($(shell echo $(CFLAGS) | grep -c "DEBUG"),0)
+-	strip $@
+-endif
+ 
+ clean:
+ 	$(RM) -f $(OBJS) aiccu

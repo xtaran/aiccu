@@ -1,0 +1,24 @@
+diff -urNp --exclude-from=/home/mdomsch/excludes --minimal aiccu.orig/Makefile aiccu/Makefile
+--- aiccu.orig/Makefile	2006-06-28 13:30:33.000000000 -0500
++++ aiccu/Makefile	2006-06-28 13:38:58.000000000 -0500
+@@ -61,6 +61,7 @@ export dirbin
+ export diretc
+ export dirdoc
+ export RPM_OPT_FLAGS
++export CFLAGS
+ 
+ ####################
+ ## Makefile Targets
+diff -urNp --exclude-from=/home/mdomsch/excludes --minimal aiccu.orig/unix-console/Makefile aiccu/unix-console/Makefile
+--- aiccu.orig/unix-console/Makefile	2006-06-28 13:30:33.000000000 -0500
++++ aiccu/unix-console/Makefile	2006-06-28 13:40:44.000000000 -0500
+@@ -15,7 +15,8 @@ INCS	= ../common/aiccu.h ../common/hash_
+ OBJS	= main.o ../common/aiccu.o ../common/hash_md5.o ../common/hash_sha1.o ../common/common.o ../common/heartbeat.o ../common/tic.o ../common/ayiya.o ../common/aiccu_test.o
+ CWARNS	= -pedantic -W -Wall -Wshadow -Wcast-align
+ #CFLAGS	+= $(CWARNS) -D_GNU_SOURCE -D_DEBUG -g3 -O0
+-CFLAGS	+= $(CWARNS) -D_GNU_SOURCE -O3
++#CFLAGS	+= $(CWARNS) -D_GNU_SOURCE -O3
++CFLAGS	+= $(CWARNS) -D_GNU_SOURCE
+ CC      = gcc
+ RM      = rm
+ 
