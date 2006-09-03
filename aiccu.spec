@@ -9,7 +9,7 @@
 Summary:   AICCU - SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2005.01.31
-Release:   4%{?dist}
+Release:   5%{?dist}
 License:   BSDish
 Group:	   System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -77,6 +77,9 @@ make clean
 %{_sysconfdir}/init.d/aiccu
 
 %changelog
+* Sat Sep  2 2006 Matt Domsch <matt@domsch.com> 2005.01.31-5
+- rebuild
+
 * Wed Jun 28 2006 Matt Domsch <matt@domsch.com> 2005.01.31-4
 - export CFLAGS properly, fix permissions on files for debuginfo
 
