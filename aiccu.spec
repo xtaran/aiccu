@@ -8,17 +8,16 @@
 
 Summary:   AICCU - SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
-Version:   2005.01.31
-Release:   5%{?dist}
+Version:   2006.07.25
+Release:   1%{?dist}
 License:   BSDish
 Group:	   System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Source:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_%{version}.tar.gz
+# upstream author acks this patch, will include in a future release
 Patch1:	   aiccu-reload.patch
-Patch2:	   aiccu-chkconfig.patch
-Patch3:	   aiccu-no-strip.patch
-Patch4:	   aiccu-cflags.patch
+BuildRequires: gnutls-devel
 Requires:  iproute
 Requires(post): chkconfig
 Requires(preun): chkconfig, initscripts
@@ -33,10 +32,7 @@ For more information about SixXS check http://www.sixxs.net
 
 %prep
 %setup -q -n %{name}
-%patch1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
+%patch1 -p1
 # fix executable permissions on non-executable content
 # so debuginfo can pick them up properly
 find . -type f -not -name rules -and -not -name *init* -exec chmod a-x \{\} \;
@@ -77,6 +73,10 @@ make clean
 %{_sysconfdir}/init.d/aiccu
 
 %changelog
+* Sat Sep 23 2006 Matt Domsch <matt@domsch.com> 2006.07.25-1
+- upgrade to latest upstream, drop all applied patches
+- add BR gnutls-devel now used for obtaining tunnel info
+
 * Sat Sep  2 2006 Matt Domsch <matt@domsch.com> 2005.01.31-5
 - rebuild
 

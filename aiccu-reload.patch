@@ -1,21 +1,11 @@
---- doc/aiccu.init.rpm.orig	2006-04-22 16:09:38.000000000 -0500
-+++ doc/aiccu.init.rpm	2006-04-22 16:10:07.000000000 -0500
-@@ -87,6 +87,9 @@
+--- aiccu_2006.07.25/doc/aiccu.init.rpm.orig	2006-09-03 15:05:44.000000000 -0500
++++ aiccu_2006.07.25/doc/aiccu.init.rpm	2006-09-03 15:05:59.000000000 -0500
+@@ -85,6 +85,8 @@ case "$1" in
+   	stop
+ 	;;
    restart)
++	restart
++	;;
+   reload)
    	restart
  	;;
-+  reload)
-+        restart
-+	;;
-   status)
-   	rhstatus
- 	;;
-@@ -94,7 +97,7 @@
-   	[ -f /var/lock/subsys/aiccu ] && restart || :
- 	;;
-   *)
--	echo $"Usage: $0 {start|stop|restart|status|condrestart}"
-+	echo $"Usage: $0 {start|stop|restart|reload|status|condrestart}"
- 	exit 1
- esac
- 
