@@ -8,15 +8,13 @@
 
 Summary:   AICCU - SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
-Version:   2006.07.25
-Release:   2%{?dist}
-License:   BSDish
-Group:	   System Environment/Daemons
+Version:   2007.01.07
+Release:   1%{?dist}
+License:   BSD
+Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Source:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_%{version}.tar.gz
-# upstream author acks this patch, will include in a future release
-Patch1:	   aiccu-reload.patch
+Source:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070107.tar.gz
 BuildRequires: gnutls-devel
 Requires:  iproute
 Requires(post): chkconfig
@@ -32,7 +30,6 @@ For more information about SixXS check http://www.sixxs.net
 
 %prep
 %setup -q -n %{name}
-%patch1 -p1
 # fix executable permissions on non-executable content
 # so debuginfo can pick them up properly
 find . -type f -not -name rules -and -not -name *init* -exec chmod a-x \{\} \;
@@ -73,6 +70,14 @@ make clean
 %{_sysconfdir}/init.d/aiccu
 
 %changelog
+* Sun Jan 07 2007 Matt Domsch <matt@domsch.com> 2007.01.07-1
+- upgrade to latest upstream 2007.01.07
+  - license change to BSD 3-clause
+  - Fixed up silly linux bug, adding LL address to tunnels but not to tun/taps.
+  - local_ipv4_override option so one can use AICCU behind a NAT that
+    has been configured correctly to do proto-41 forwarding. This is
+    usually called a DMZ setup.
+
 * Mon Oct 02 2006 Matt Domsch <matt@domsch.com> 2006.07.25-2
 - rebuilt
 
