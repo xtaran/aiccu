@@ -8,13 +8,13 @@
 
 Summary:   AICCU - SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
-Version:   2007.01.07
-Release:   2%{?dist}
+Version:   2007.01.15
+Release:   1%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Source:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070107.tar.gz
+Source:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070115.tar.gz
 BuildRequires: gnutls-devel
 Requires:  iproute
 Requires(post): chkconfig
@@ -70,6 +70,9 @@ make clean
 %{_sysconfdir}/init.d/aiccu
 
 %changelog
+* Wed Jan 31 2007 Matt Domsch <matt@domsch.com> 2007.01.15-1
+- upgrade to latest upstream
+
 * Sat Jan 13 2007 Matt Domsch <matt@domsch.com> 2007.01.07-2
 - upstream respun their release with the same version number to fix AYIYA.
 
