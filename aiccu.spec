@@ -9,7 +9,7 @@
 Summary:   AICCU - SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   1%{?dist}
+Release:   2%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -70,6 +70,9 @@ make clean
 %{_sysconfdir}/init.d/aiccu
 
 %changelog
+* Wed Sep 19 2007 Matt Domsch <matt@domsch.com> 2007.01.15-2
+- rebuild
+
 * Wed Jan 31 2007 Matt Domsch <matt@domsch.com> 2007.01.15-1
 - upgrade to latest upstream
 
