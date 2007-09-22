@@ -9,12 +9,13 @@
 Summary:   AICCU - SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   2%{?dist}
+Release:   3%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Source:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070115.tar.gz
+Patch0: aiccu-lsb-initscript.patch
 BuildRequires: gnutls-devel
 Requires:  iproute
 Requires(post): chkconfig
@@ -30,6 +31,7 @@ For more information about SixXS check http://www.sixxs.net
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 # fix executable permissions on non-executable content
 # so debuginfo can pick them up properly
 find . -type f -not -name rules -and -not -name *init* -exec chmod a-x \{\} \;
@@ -70,6 +72,9 @@ make clean
 %{_sysconfdir}/init.d/aiccu
 
 %changelog
+* Fri Sep 21 2007 Matt Domsch <matt@domsch.com> 2007.01.15-3
+- add LSB initscript header (BZ#246861)
+
 * Wed Sep 19 2007 Matt Domsch <matt@domsch.com> 2007.01.15-2
 - rebuild
 
