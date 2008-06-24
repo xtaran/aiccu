@@ -9,7 +9,7 @@
 Summary:   AICCU - SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   3%{?dist}
+Release:   4%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -72,6 +72,9 @@ make clean
 %{_sysconfdir}/init.d/aiccu
 
 %changelog
+* Tue Jun 24 2008 Tomas Mraz <tmraz@redhat.com> 2007.01.15-4 
+- rebuild with new gnutls
+
 * Fri Sep 21 2007 Matt Domsch <matt@domsch.com> 2007.01.15-3
 - add LSB initscript header (BZ#246861)
 
