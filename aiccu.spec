@@ -9,13 +9,14 @@
 Summary:   AICCU - SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   4%{?dist}
+Release:   5%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Source:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070115.tar.gz
 Patch0: aiccu-lsb-initscript.patch
+Patch1: aiccu-cloexec.patch
 BuildRequires: gnutls-devel
 Requires:  iproute
 Requires(post): chkconfig
@@ -32,6 +33,8 @@ For more information about SixXS check http://www.sixxs.net
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
+
 # fix executable permissions on non-executable content
 # so debuginfo can pick them up properly
 find . -type f -not -name rules -and -not -name *init* -exec chmod a-x \{\} \;
@@ -72,6 +75,9 @@ make clean
 %{_sysconfdir}/init.d/aiccu
 
 %changelog
+* Fri Oct 17 2008 Matt Domsch <mdomsch@fedoraproject.org> - 2007.01.15-5
+- close file descriptors on exec (BZ#467381)
+
 * Tue Jun 24 2008 Tomas Mraz <tmraz@redhat.com> 2007.01.15-4 
 - rebuild with new gnutls
 
