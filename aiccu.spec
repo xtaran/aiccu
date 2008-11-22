@@ -6,7 +6,7 @@
 # AICCU RPM Spec File
 ############################################################
 
-Summary:   AICCU - SixXS Automatic IPv6 Connectivity Client Utility
+Summary:   SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
 Release:   5%{?dist}
