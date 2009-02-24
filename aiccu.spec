@@ -9,7 +9,7 @@
 Summary:   SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   5%{?dist}
+Release:   6%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -75,6 +75,9 @@ make clean
 %{_sysconfdir}/init.d/aiccu
 
 %changelog
+* Mon Feb 23 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2007.01.15-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
+
 * Fri Oct 17 2008 Matt Domsch <mdomsch@fedoraproject.org> - 2007.01.15-5
 - close file descriptors on exec (BZ#467381)
 
