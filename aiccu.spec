@@ -9,19 +9,21 @@
 Summary:   SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   8%{?dist}
+Release:   9%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Source:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070115.tar.gz
-Patch0: aiccu-lsb-initscript.patch
-Patch1: aiccu-cloexec.patch
+Source0:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070115.tar.gz
+Source1:   aiccu.service
+Patch0: aiccu-cloexec.patch
+Patch1: aiccu-run.patch
 BuildRequires: gnutls-devel
+BuildRequires: systemd-units
 Requires:  iproute
-Requires(post): chkconfig
-Requires(preun): chkconfig, initscripts
-Requires(postun): initscripts
+Requires(post): systemd-units
+Requires(preun): systemd-units
+Requires(postun): systemd-units
 
 %description
 This client automatically gives one IPv6 connectivity
@@ -33,7 +35,7 @@ For more information about SixXS check http://www.sixxs.net
 %prep
 %setup -q -n %{name}
 %patch0 -p1
-%patch1 -p1
+%patch1 -p1 -b .run
 
 # fix executable permissions on non-executable content
 # so debuginfo can pick them up properly
@@ -47,19 +49,30 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
+# remove old-style init script
+rm $RPM_BUILD_ROOT%{_sysconfdir}/init.d/*
+
+mkdir -p $RPM_BUILD_ROOT%{_unitdir}
+install -p %{SOURCE1} $RPM_BUILD_ROOT%{_unitdir}/
+
+mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
+touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/aiccu
+
 %post
 if [ "$1" = "1" ]; then
-	/sbin/chkconfig --add aiccu
+	/bin/systemctl --daemon-reload >/dev/null 2>&1 || :
 fi
 
 %preun
 if [ "$1" = "0" ]; then
-	/sbin/service aiccu stop >/dev/null 2>&1
-	/sbin/chkconfig --del aiccu
+	/bin/systemctl disable aiccu.service >/dev/null 2>&1 || :
+	/bin/systemctl stop aiccu.service >/dev/null 2>&1 || :
 fi
 
 %postun
-/sbin/service aiccu condrestart > /dev/null 2>&1 || :
+if [ "$1" -ge 1 ]; then
+   /bin/systemctl try-restart aiccu.service >/dev/null 2>&1 || :   
+fi
 
 %clean
 make clean
@@ -72,9 +85,13 @@ make clean
 # aiccu.conf contains the users's SixXS password, so don't
 # make it readable by non-root
 %attr(600, root,root) %config(noreplace) %{_sysconfdir}/aiccu.conf
-%{_sysconfdir}/init.d/aiccu
+%{_unitdir}/aiccu.service
+%{_sysconfdir}/sysconfig/aiccu
 
 %changelog
+* Wed Jul  6 2011 Jochen Schmitt <Jochen herr-schmitt de> - 2007.01.15-9
+- Implementing native systemd support
+
 * Mon Feb 07 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2007.01.15-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 

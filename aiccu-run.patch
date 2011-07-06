@@ -1,0 +1,12 @@
+diff -up aiccu/common/aiccu.h.run aiccu/common/aiccu.h
+--- aiccu/common/aiccu.h.run	2011-07-06 22:22:40.944419473 +0200
++++ aiccu/common/aiccu.h	2011-07-06 22:23:57.240419462 +0200
+@@ -68,7 +68,7 @@
+ #define AICCU_CACHE	"/var/cache/aiccu.cache"
+ 
+ /* The PID we are running as when daemonized */
+-#define AICCU_PID	"/var/run/aiccu.pid"
++#define AICCU_PID	"/run/aiccu.pid"
+ 
+ /* AICCU Configuration file */
+ #ifdef _WIN32
