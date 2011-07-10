@@ -90,7 +90,7 @@ make clean
 
 %changelog
 * Wed Jul  6 2011 Jochen Schmitt <Jochen herr-schmitt de> - 2007.01.15-9
-- Implementing native systemd support
+- Implementing native systemd support (656886)
 
 * Mon Feb 07 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2007.01.15-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
