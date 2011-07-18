@@ -4,7 +4,7 @@ After=syslog.target network.target
 
 [Service]
 Type=forking
-EnvironmentFile=/etc/sysconfig/aiccu
+EnvironmentFile=-/etc/sysconfig/aiccu
 ExecStart=/usr/sbin/aiccu start $OPTIONS
 ExecStop=/usr/sbin/aiccu stop
 PIDFile=/run/aiccu.pid

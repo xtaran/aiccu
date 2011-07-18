@@ -9,7 +9,7 @@
 Summary:   SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   9%{?dist}
+Release:   10%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -55,9 +55,6 @@ rm $RPM_BUILD_ROOT%{_sysconfdir}/init.d/*
 mkdir -p $RPM_BUILD_ROOT%{_unitdir}
 install -p %{SOURCE1} $RPM_BUILD_ROOT%{_unitdir}/
 
-mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
-touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/aiccu
-
 %post
 if [ "$1" = "1" ]; then
 	/bin/systemctl --daemon-reload >/dev/null 2>&1 || :
@@ -86,9 +83,12 @@ make clean
 # make it readable by non-root
 %attr(600, root,root) %config(noreplace) %{_sysconfdir}/aiccu.conf
 %{_unitdir}/aiccu.service
-%{_sysconfdir}/sysconfig/aiccu
 
 %changelog
+* Mon Jul 18 2011 Jochen Schmitt <Jochen herr-schmitt de> - 2007.01.15-10
+- Change service file to get not complains when /etc/sysconfig/aiccu is missing
+- Change PID file in aiccu.conf to /run/aiccu.pid
+
 * Wed Jul  6 2011 Jochen Schmitt <Jochen herr-schmitt de> - 2007.01.15-9
 - Implementing native systemd support (656886)
 
