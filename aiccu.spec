@@ -18,6 +18,7 @@ Source0:    http://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070115.tar.gz
 Source1:   aiccu.service
 Patch0: aiccu-cloexec.patch
 Patch1: aiccu-run.patch
+Patch2: aiccu-syslog-daemon.patch
 BuildRequires: gnutls-devel
 BuildRequires: systemd-units
 Requires:  iproute
@@ -36,6 +37,7 @@ For more information about SixXS check http://www.sixxs.net
 %setup -q -n %{name}
 %patch0 -p1
 %patch1 -p1 -b .run
+%patch2 -p1 -b .syslog-daemon
 
 # fix executable permissions on non-executable content
 # so debuginfo can pick them up properly
