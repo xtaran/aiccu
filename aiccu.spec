@@ -9,7 +9,7 @@
 Summary:   SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   10%{?dist}
+Release:   11%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -87,6 +87,9 @@ make clean
 %{_unitdir}/aiccu.service
 
 %changelog
+* Thu Oct 27 2011 Conrad Meyer <konrad@tylerc.org> - 2007.01.15-11
+- Patch to syslog as DAEMON, not LOCAL7.
+
 * Mon Jul 18 2011 Jochen Schmitt <Jochen herr-schmitt de> - 2007.01.15-10
 - Change service file to get not complains when /etc/sysconfig/aiccu is missing
 - Change PID file in aiccu.conf to /run/aiccu.pid
