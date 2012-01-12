@@ -9,7 +9,7 @@
 Summary:   SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   11%{?dist}
+Release:   12%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -87,6 +87,9 @@ make clean
 %{_unitdir}/aiccu.service
 
 %changelog
+* Thu Jan 12 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2007.01.15-12
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Thu Oct 27 2011 Conrad Meyer <konrad@tylerc.org> - 2007.01.15-11
 - Patch to syslog as DAEMON, not LOCAL7.
 
