@@ -9,7 +9,7 @@
 Summary:   SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   13%{?dist}
+Release:   14%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -87,6 +87,9 @@ make clean
 %{_unitdir}/aiccu.service
 
 %changelog
+* Tue Jul 31 2012 Conrad Meyer <konrad@tylerc.org> - 2007.01.15-14
+- Adopt Eric Hopper's proposed changes (#844607)
+
 * Wed Jul 18 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2007.01.15-13
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
