@@ -9,7 +9,7 @@
 Summary:   SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   14%{?dist}
+Release:   15%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -87,6 +87,9 @@ make clean
 %{_unitdir}/aiccu.service
 
 %changelog
+* Mon Aug 6 2012 Conrad Meyer <konrad@tylerc.org> - 2007.01.15-15
+- Nix systemd restart as per discussion on #844607
+
 * Tue Jul 31 2012 Conrad Meyer <konrad@tylerc.org> - 2007.01.15-14
 - Adopt Eric Hopper's proposed changes (#844607)
 

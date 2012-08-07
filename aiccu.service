@@ -8,8 +8,6 @@ EnvironmentFile=-/etc/sysconfig/aiccu
 ExecStart=/usr/sbin/aiccu start $OPTIONS
 ExecStop=/usr/sbin/aiccu stop
 PIDFile=/run/aiccu.pid
-Restart=always
-RestartSec=10
 
 [Install]
 WantedBy=multi-user.target
