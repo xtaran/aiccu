@@ -9,7 +9,7 @@
 Summary:   SixXS Automatic IPv6 Connectivity Client Utility
 Name:      aiccu
 Version:   2007.01.15
-Release:   17%{?dist}
+Release:   18%{?dist}
 License:   BSD
 Group:     System Environment/Daemons
 URL:       http://www.sixxs.net/tools/aiccu/
@@ -58,20 +58,13 @@ mkdir -p $RPM_BUILD_ROOT%{_unitdir}
 install -p %{SOURCE1} $RPM_BUILD_ROOT%{_unitdir}/
 
 %post
-if [ "$1" = "1" ]; then
-	/bin/systemctl --daemon-reload >/dev/null 2>&1 || :
-fi
+%systemd_post aiccu.service
 
 %preun
-if [ "$1" = "0" ]; then
-	/bin/systemctl disable aiccu.service >/dev/null 2>&1 || :
-	/bin/systemctl stop aiccu.service >/dev/null 2>&1 || :
-fi
+%systemd_preun aiccu.service
 
 %postun
-if [ "$1" -ge 1 ]; then
-   /bin/systemctl try-restart aiccu.service >/dev/null 2>&1 || :   
-fi
+%systemd_postun_with_restart aiccu.service 
 
 %clean
 make clean
@@ -87,6 +80,9 @@ make clean
 %{_unitdir}/aiccu.service
 
 %changelog
+* Mon Jan 06 2014 Pavel Šimerda <psimerda@redhat.com> - 2007.01.15-18
+- #850022 - use systemd-rpm macros
+
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2007.01.15-17
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 

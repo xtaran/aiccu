@@ -1,5 +1,5 @@
 [Unit]
-Description=AICCU (AAutomatic IPv6 Connectivity Configuration Utility)
+Description=AICCU (Automatic IPv6 Connectivity Configuration Utility)
 After=syslog.target network.target
 
 [Service]
