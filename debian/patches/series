@@ -8,3 +8,4 @@
 0008-setup-script.patch
 0009-binutils-gold.patch
 0010-gnutls-cleanup.patch
+0011-memset-sizeof.patch
