@@ -1,4 +1,4 @@
-aiccu (20070115-16) unstable; urgency=low
+aiccu (20070115-16) unstable; urgency=medium
 
   [ Barak A. Pearlmutter ]
   * Simplify debian/rules with dh9
@@ -6,6 +6,7 @@ aiccu (20070115-16) unstable; urgency=low
   * Quilt patch with tweaks to gnutls (closes: #624056)
   * Network ifup script, needed for aiccu to work after suspend/resume
     (Closes: #686490)
+  * Bump standards version, no changes required
 
   [ Reinier Haasjes ]
   * Fix "after about a month, routing gets wedged" Make ntp* a dependency.
@@ -13,7 +14,7 @@ aiccu (20070115-16) unstable; urgency=low
   * Fix "init script should create output when VERBOSE is off" Removed
     verbose switches from init file (Closes: #612785)
 
- -- Reinier Haasjes <reinier@haasjes.com>  Fri, 21 Sep 2012 10:34:31 +0200
+ -- Barak A. Pearlmutter <bap@debian.org>  Sat, 22 Feb 2014 15:32:32 +0000
 
 aiccu (20070115-15.1) unstable; urgency=low
 
