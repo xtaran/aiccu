@@ -7,6 +7,8 @@ aiccu (20070115-16) unstable; urgency=medium
   * Network ifup script, needed for aiccu to work after suspend/resume
     (Closes: #686490)
   * Bump standards version, no changes required
+  * quilt patch for memset sizeof typo
+  * Add self as co-maintainer (closes: #692465)
 
   [ Reinier Haasjes ]
   * Fix "after about a month, routing gets wedged" Make ntp* a dependency.
@@ -14,7 +16,7 @@ aiccu (20070115-16) unstable; urgency=medium
   * Fix "init script should create output when VERBOSE is off" Removed
     verbose switches from init file (Closes: #612785)
 
- -- Barak A. Pearlmutter <bap@debian.org>  Sat, 22 Feb 2014 15:32:32 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 23 Feb 2014 09:36:33 +0000
 
 aiccu (20070115-15.1) unstable; urgency=low
 
