@@ -3,6 +3,8 @@
 # Provides:          aiccu
 # Required-Start:    $local_fs $remote_fs $syslog $network $time $named
 # Required-Stop:     $local_fs $remote_fs $syslog $network $time $named
+# Should-Start:      network-manager
+# Should-Stop:       network-manager
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: SixXS Automatic IPv6 Connectivity Client Utility
