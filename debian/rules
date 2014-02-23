@@ -12,12 +12,12 @@
 
 override_dh_clean:
 	@echo Fix permissions of configuration file
-	chmod a-x doc/aiccu.conf
+	-chmod --verbose a-x doc/aiccu.conf
 	@echo Fix permissions of 60aiccu file
-	chmod a+x debian/60aiccu	
+	-chmod --verbose a+x debian/60aiccu	
 	dh_clean
 
 override_dh_auto_install:
 	dh_auto_install
 	@echo remove license as it is duplicated in debian/copyright
-	rm debian/aiccu/usr/share/doc/aiccu/LICENSE
+	-rm --verbose debian/aiccu/usr/share/doc/aiccu/LICENSE
