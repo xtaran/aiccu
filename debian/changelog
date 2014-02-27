@@ -1,4 +1,4 @@
-aiccu (20070115-16) unstable; urgency=medium
+aiccu (20070115-15.2) UNRELEASED; urgency=medium
 
   [ Barak A. Pearlmutter ]
   * Simplify debian/rules with dh9
@@ -8,7 +8,9 @@ aiccu (20070115-16) unstable; urgency=medium
     (Closes: #686490)
   * Bump standards version, no changes required
   * quilt patch for memset sizeof typo
-  * Add self as co-maintainer (closes: #692465)
+  * rm obsolete debian/dirs
+  * read-tree fedora repo into debian/fedora, for ease of reference
+  * shoult-start dependency on network-manager
 
   [ Reinier Haasjes ]
   * Fix "after about a month, routing gets wedged" Make ntp* a dependency.
