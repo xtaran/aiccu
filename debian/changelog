@@ -1,3 +1,12 @@
+aiccu (20070115-15.3) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * 10_gnutls34.diff: Use GnuTLS priority NORMAL:+CTYPE-OPENPGP instead of
+    deprecated (and removed in GnuTLS 3.4) function
+    gnutls_certificate_type_set_priority. Closes: #624056
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 25 Jul 2015 14:41:59 +0200
+
 aiccu (20070115-15.2) unstable; urgency=medium
 
   * Non-maintainer upload.

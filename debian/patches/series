@@ -7,3 +7,4 @@
 07_allow_tunnels.patch
 08_setup_script.patch
 09_binutils_gold.patch
+10_gnutls34.diff
