@@ -8,3 +8,5 @@
 08_setup_script.patch
 09_binutils_gold.patch
 10_gnutls34.diff
+10_gnutls-cleanup.patch
+11_memset-sizeof.patch

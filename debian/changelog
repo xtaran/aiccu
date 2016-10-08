@@ -1,3 +1,24 @@
+aiccu (20070115-15.4) UNRELEASED; urgency=medium
+
+  [ Barak A. Pearlmutter ]
+  * Simplify debian/rules with dh9
+  * Quilt patch with tweaks to gnutls (closes: #624056)
+  * Network ifup script, needed for aiccu to work after suspend/resume
+    (Closes: #686490)
+  * Bump standards version, no changes required
+  * quilt patch for memset sizeof typo
+  * rm obsolete debian/dirs
+  * read-tree fedora repo into debian/fedora, for ease of reference
+  * shoult-start dependency on network-manager
+
+  [ Reinier Haasjes ]
+  * Fix "after about a month, routing gets wedged" Make ntp* a dependency.
+    (Closes: #678519)
+  * Fix "init script should create output when VERBOSE is off" Removed
+    verbose switches from init file (Closes: #612785)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 23 Feb 2014 09:36:33 +0000
+
 aiccu (20070115-15.3) unstable; urgency=low
 
   * Non-maintainer upload.
@@ -13,7 +34,6 @@ aiccu (20070115-15.2) unstable; urgency=medium
   * Rebuild against GnuTLS v3. Closes: #752298
 
  -- Andreas Metzler <ametzler@debian.org>  Thu, 07 Aug 2014 19:27:56 +0200
-
 aiccu (20070115-15.1) unstable; urgency=low
 
   * Non-maintainer upload

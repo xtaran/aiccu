@@ -3,6 +3,8 @@
 # Provides:          aiccu
 # Required-Start:    $local_fs $remote_fs $syslog $network $time $named
 # Required-Stop:     $local_fs $remote_fs $syslog $network $time $named
+# Should-Start:      network-manager
+# Should-Stop:       network-manager
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: SixXS Automatic IPv6 Connectivity Client Utility
@@ -114,19 +116,19 @@ do_stop()
 
 case "$1" in
   start)
-	[ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC" "$NAME"
+	log_daemon_msg "Starting $DESC" "$NAME"
 	do_start
 	case "$?" in
-		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
-		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
+		0|1) log_end_msg 0 ;;
+		2) log_end_msg 1 ;;
 	esac
 	;;
   stop)
-	[ "$VERBOSE" != no ] && log_daemon_msg "Stopping $DESC" "$NAME"
+	log_daemon_msg "Stopping $DESC" "$NAME"
 	do_stop
 	case "$?" in
-		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
-		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
+		0|1) log_end_msg 0 ;;
+		2) log_end_msg 1 ;;
 	esac
 	;;
   status)

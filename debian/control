@@ -2,8 +2,8 @@ Source: aiccu
 Section: net
 Priority: optional
 Maintainer: Reinier Haasjes <reinier@haasjes.com>
-Build-Depends: debhelper (>= 7), po-debconf, libgnutls28-dev, docbook-to-man
-Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 9), po-debconf, libgnutls28-dev, docbook-to-man
+Standards-Version: 3.9.5
 Homepage: http://www.sixxs.net/tools/aiccu/
 Vcs-Browser: http://github.com/rhaasjes/aiccu
 Vcs-Git: git://github.com/rhaasjes/aiccu.git
@@ -14,8 +14,9 @@ Depends: ${misc:Depends}, ${shlibs:Depends}, debconf, lsb-base, ucf,
  iputils-ping [linux-any],
  iputils-tracepath [linux-any],
  iproute [linux-any],
- freebsd-net-tools [kfreebsd-any]
-Recommends: ntpdate | ntp | time-daemon, bind9-host | dnsutils
+ freebsd-net-tools [kfreebsd-any],
+ ntpdate | ntp | time-daemon
+Recommends: bind9-host | dnsutils
 Description: SixXS Automatic IPv6 Connectivity Client Utility
  This client configures IPv6 connectivity without having to
  manually configure interfaces etc. A SixXS account or an account
