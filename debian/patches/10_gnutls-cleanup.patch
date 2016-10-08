@@ -13,20 +13,9 @@ gnutls_certificate_type_set_priority, no changes necessary.
  common/common.c |   27 +++++++++++++++++----------
  1 file changed, 17 insertions(+), 10 deletions(-)
 
-diff --git a/common/common.c b/common/common.c
-index 739ee9c..116897f 100755
 --- a/common/common.c
 +++ b/common/common.c
-@@ -271,8 +271,6 @@ TLSSOCKET sock_alloc(void);
- TLSSOCKET sock_alloc(void)
- {
- #ifdef AICCU_GNUTLS
--	/* Allow connections to servers that have OpenPGP keys as well */
--	const int	cert_type_priority[3] = { GNUTLS_CRT_X509, GNUTLS_CRT_OPENPGP, 0 };
- 	int		ret;
- #endif /* AICCU_GNUTLS*/
- 
-@@ -289,7 +287,7 @@ TLSSOCKET sock_alloc(void)
+@@ -287,7 +287,7 @@
  
  	/* Initialize TLS session */
  	ret = gnutls_init(&sock->session, GNUTLS_CLIENT);
@@ -35,16 +24,14 @@ index 739ee9c..116897f 100755
  	{
  		dolog(LOG_ERR, "TLS Init failed: %s (%d)\n", gnutls_strerror(ret), ret);
  		free(sock);
-@@ -297,15 +295,24 @@ TLSSOCKET sock_alloc(void)
- 	}
+@@ -296,13 +296,26 @@
  
  	/* Use default priorities */
--	gnutls_set_default_priority(sock->session);
--	/* XXX: Return value is not documented in GNUTLS documentation! */
--
--	gnutls_certificate_type_set_priority(sock->session, cert_type_priority);
--	/* XXX: Return value is not documented in GNUTLS documentation! */
-+	ret = gnutls_priority_set_direct(sock->session, "NORMAL", NULL);
+ 	/* Allow connections to servers that have OpenPGP keys as well */
+-	gnutls_priority_set_direct(sock->session, 
++	ret = gnutls_priority_set_direct(sock->session,
+ 			"NORMAL:+CTYPE-OPENPGP",
+ 			NULL);
 +	if (ret != GNUTLS_E_SUCCESS)
 +	{
 +		dolog(LOG_ERR, "TLS set default priority failed: %s (%d)\n", gnutls_strerror(ret), ret);
