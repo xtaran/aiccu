@@ -27,6 +27,7 @@ aiccu (20070115-15.4) UNRELEASED; urgency=medium
   * Enable all hardening build flags except -fPIE. (FTBFS with -fPIE.)
   * Add /debhelper-build-stamp to debian/.gitignore.
   * Add patch to add missing description for "aiccu autotest" in man page.
+  * Declare compliance with Debian Policy 3.9.8. (No changes were needed.)
 
  -- Barak A. Pearlmutter <bap@debian.org>  Sun, 23 Feb 2014 09:36:33 +0000
 

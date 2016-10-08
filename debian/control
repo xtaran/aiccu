@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9),
                docbook-to-man,
                libgnutls28-dev,
                po-debconf
-Standards-Version: 3.9.5
+Standards-Version: 3.9.8
 Homepage: https://www.sixxs.net/tools/aiccu/
 Vcs-Browser: https://github.com/rhaasjes/aiccu
 Vcs-Git: https://github.com/rhaasjes/aiccu.git
