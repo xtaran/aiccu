@@ -2,20 +2,27 @@ Source: aiccu
 Section: net
 Priority: optional
 Maintainer: Reinier Haasjes <reinier@haasjes.com>
-Build-Depends: debhelper (>= 9), po-debconf, libgnutls28-dev, docbook-to-man
+Build-Depends: debhelper (>= 9),
+               docbook-to-man,
+               libgnutls28-dev,
+               po-debconf
 Standards-Version: 3.9.5
 Homepage: https://www.sixxs.net/tools/aiccu/
 Vcs-Browser: https://github.com/rhaasjes/aiccu
 Vcs-Git: https://github.com/rhaasjes/aiccu.git
 
 Package: aiccu
-Architecture: linux-any kfreebsd-any
-Depends: ${misc:Depends}, ${shlibs:Depends}, debconf, lsb-base, ucf,
- iputils-ping [linux-any],
- iputils-tracepath [linux-any],
- iproute [linux-any],
- freebsd-net-tools [kfreebsd-any],
- ntpdate | ntp | time-daemon
+Architecture: kfreebsd-any linux-any
+Depends: debconf,
+         freebsd-net-tools [kfreebsd-any],
+         iproute [linux-any],
+         iputils-ping [linux-any],
+         iputils-tracepath [linux-any],
+         lsb-base,
+         ntpdate | ntp | time-daemon,
+         ucf,
+         ${misc:Depends},
+         ${shlibs:Depends}
 Recommends: bind9-host | dnsutils
 Description: SixXS Automatic IPv6 Connectivity Client Utility
  This client configures IPv6 connectivity without having to
@@ -23,4 +30,3 @@ Description: SixXS Automatic IPv6 Connectivity Client Utility
  of another supported tunnel broker and at least one tunnel are
  required. These can be freely requested from the SixXS website
  at no cost. For more information about SixXS check their homepage.
-
