@@ -10,7 +10,7 @@
 export DEB_BUILD_MAINT_OPTIONS=hardening=+all,-pie
 
 %:
-	dh $@ --parallel
+	dh $@
 
 override_dh_clean:
 	@echo Fix permissions of configuration file
