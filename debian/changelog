@@ -24,6 +24,7 @@ aiccu (20070115-15.4) UNRELEASED; urgency=medium
   * Apply "wrap-and-sort -a".
   * Make dependency on lsb-base versioned. Fixes lintian warning
     init.d-script-needs-depends-on-lsb-base.
+  * Enable all hardening build flags except -fPIE. (FTBFS with -fPIE.)
 
  -- Barak A. Pearlmutter <bap@debian.org>  Sun, 23 Feb 2014 09:36:33 +0000
 
