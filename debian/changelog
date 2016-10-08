@@ -22,6 +22,8 @@ aiccu (20070115-15.4) UNRELEASED; urgency=medium
   * Update all URLs from git:// or http:// to https:// which DUCK noticed
     and replace noc.sixxs.net with www.sixxs.net.
   * Apply "wrap-and-sort -a".
+  * Make dependency on lsb-base versioned. Fixes lintian warning
+    init.d-script-needs-depends-on-lsb-base.
 
  -- Barak A. Pearlmutter <bap@debian.org>  Sun, 23 Feb 2014 09:36:33 +0000
 
