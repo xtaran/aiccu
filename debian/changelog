@@ -2,7 +2,6 @@ aiccu (20070115-15.2) UNRELEASED; urgency=medium
 
   [ Barak A. Pearlmutter ]
   * Simplify debian/rules with dh9
-  * Refresh quilt patches with gbp-pq import/export
   * Quilt patch with tweaks to gnutls (closes: #624056)
   * Network ifup script, needed for aiccu to work after suspend/resume
     (Closes: #686490)
