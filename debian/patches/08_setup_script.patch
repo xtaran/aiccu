@@ -1,18 +1,10 @@
-From: Reinier Haasjes <reinier@haasjes.com>
-Date: Fri, 17 Aug 2012 11:29:39 +0200
-Subject: setup script
+Author: Norman Rasmussen <norman@rasmussen.co.za>
 
     Make setupscript work and add teardownscript setting.
----
- common/aiccu.c      |    6 +++---
- unix-console/main.c |    5 +++++
- 2 files changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/common/aiccu.c b/common/aiccu.c
-index 75aadc8..4bc7c97 100755
---- a/common/aiccu.c
-+++ b/common/aiccu.c
-@@ -215,9 +215,6 @@ bool aiccu_SaveConfig(const char *filename)
+--- aiccu.orig/common/aiccu.c
++++ aiccu/common/aiccu.c
+@@ -212,9 +212,6 @@
  	fprintf(f, "# Try to automatically login and setup the tunnel?\n");
  	fprintf(f, "automatic %s\n", g_aiccu->automatic ? "true" : "false");
  	fprintf(f, "\n");
@@ -22,7 +14,7 @@ index 75aadc8..4bc7c97 100755
  	fprintf(f, "# TLS Required?\n");
  	fprintf(f, "requiretls %s\n", g_aiccu->requiretls ? "true" : "false");
  	fprintf(f, "\n");
-@@ -234,6 +231,9 @@ bool aiccu_SaveConfig(const char *filename)
+@@ -231,6 +228,9 @@
  	fprintf(f, "# PID File\n");
  	fprintf(f, "pidfile %s\n", g_aiccu->pidfile);
  	fprintf(f, "\n");
@@ -32,11 +24,9 @@ index 75aadc8..4bc7c97 100755
  	fprintf(f, "# Make heartbeats (default true)\n");
  	fprintf(f, "# In general you don't want to turn this off\n");
  	fprintf(f, "# Of course only applies to AYIYA and heartbeat tunnels not to static ones\n");
-diff --git a/unix-console/main.c b/unix-console/main.c
-index 388d988..375b61c 100755
---- a/unix-console/main.c
-+++ b/unix-console/main.c
-@@ -471,6 +471,11 @@ int main(int argc, char *argv[])
+--- aiccu.orig/unix-console/main.c
++++ aiccu/unix-console/main.c
+@@ -471,6 +471,11 @@
  	 */
  	if (aiccu_setup(hTunnel, true))
  	{
