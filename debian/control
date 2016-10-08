@@ -4,9 +4,9 @@ Priority: optional
 Maintainer: Reinier Haasjes <reinier@haasjes.com>
 Build-Depends: debhelper (>= 9), po-debconf, libgnutls28-dev, docbook-to-man
 Standards-Version: 3.9.5
-Homepage: http://www.sixxs.net/tools/aiccu/
-Vcs-Browser: http://github.com/rhaasjes/aiccu
-Vcs-Git: git://github.com/rhaasjes/aiccu.git
+Homepage: https://www.sixxs.net/tools/aiccu/
+Vcs-Browser: https://github.com/rhaasjes/aiccu
+Vcs-Git: https://github.com/rhaasjes/aiccu.git
 
 Package: aiccu
 Architecture: linux-any kfreebsd-any

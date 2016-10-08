@@ -19,6 +19,8 @@ aiccu (20070115-15.4) UNRELEASED; urgency=medium
 
   [ Axel Beckert ]
   * Merge NMUs by Andreas Metzler and changes by Barak A. Pearlmutter.
+  * Update all URLs from git:// or http:// to https:// which DUCK noticed
+    and replace noc.sixxs.net with www.sixxs.net.
 
  -- Barak A. Pearlmutter <bap@debian.org>  Sun, 23 Feb 2014 09:36:33 +0000
 
