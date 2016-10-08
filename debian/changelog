@@ -25,6 +25,7 @@ aiccu (20070115-15.4) UNRELEASED; urgency=medium
   * Make dependency on lsb-base versioned. Fixes lintian warning
     init.d-script-needs-depends-on-lsb-base.
   * Enable all hardening build flags except -fPIE. (FTBFS with -fPIE.)
+  * Add /debhelper-build-stamp to debian/.gitignore.
 
  -- Barak A. Pearlmutter <bap@debian.org>  Sun, 23 Feb 2014 09:36:33 +0000
 
