@@ -7,5 +7,5 @@
 07_allow_tunnels.patch
 08_setup_script.patch
 09_binutils_gold.patch
-0010-gnutls-cleanup.patch
-0011-memset-sizeof.patch
+10_gnutls-cleanup.patch
+11_memset-sizeof.patch
