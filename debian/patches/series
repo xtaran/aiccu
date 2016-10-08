@@ -10,3 +10,4 @@
 10_gnutls34.patch
 11_gnutls-cleanup.patch
 12_memset-sizeof.patch
+13_autotest_description.patch
