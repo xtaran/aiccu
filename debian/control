@@ -1,15 +1,16 @@
 Source: aiccu
 Section: net
 Priority: optional
-Maintainer: Reinier Haasjes <reinier@haasjes.com>
+Maintainer: Axel Beckert <abe@debian.org>
+Uploaders: Mike Gabriel <sunweaver@debian.org>
 Build-Depends: debhelper (>= 10),
                docbook-to-man,
                libgnutls28-dev,
                po-debconf
 Standards-Version: 3.9.8
 Homepage: https://www.sixxs.net/tools/aiccu/
-Vcs-Browser: https://github.com/rhaasjes/aiccu
-Vcs-Git: https://github.com/rhaasjes/aiccu.git
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/aiccu.git
+Vcs-Git: https://anonscm.debian.org/git/collab-maint/aiccu.git
 
 Package: aiccu
 Architecture: kfreebsd-any linux-any
